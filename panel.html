@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SafePass - Panel de Control</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body { background-color: #f7f7f7; padding: 50px; }
+        .container { max-width: 800px; margin: auto; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Tu Panel de Control</h2>
+        <p>Contraseñas Guardadas</p>
+        <ul id="passwordList"></ul>
+        <button onclick="generatePassword()" class="btn btn-primary mt-3">Generar Nueva Contraseña</button>
+        <p id="generatedPassword"></p>
+        <a href="index.html" class="btn btn-link mt-3">Cerrar Sesión</a>
+    </div>
+    <script>
+        function generatePassword() {
+            var chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()";
+            var password = Array.from({length: 12}, () => chars[Math.floor(Math.random() * chars.length)]).join('');
+            document.getElementById("generatedPassword").textContent = "Contraseña Generada: " + password;
+        }
+    </script>
+</body>
+</html>
